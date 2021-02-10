@@ -757,13 +757,14 @@ export default class JiraApi {
    * @function
    * @param {object} issue - Properly Formatted Issue object
    */
-  addNewIssue(issue) {
+  addNewIssue(issue, header) {
     return this.doRequest(this.makeRequestHeader(this.makeUri({
       pathname: '/issue',
     }), {
       method: 'POST',
       followAllRedirects: true,
       body: issue,
+      ...header
     }));
   }
 
